@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen } from './screens/HomeScreen';
-import { EventsScreen } from './screens/EventsScreen';
+import { EventsStack } from './screens/EventsScreen';
 import { ContactsScreen } from './screens/ContactsScreen';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -23,7 +23,7 @@ export default function App() {
             } else if (route.name === 'Events') {
               iconName = 'list';
             } else if (route.name === 'Contacts') {
-              iconName = 'phone';
+              iconName = focused? "user": "user-o";
             }
 
             // You can return any component that you like here!
@@ -36,7 +36,7 @@ export default function App() {
         }}
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Events" component={EventsScreen} />
+        <Tab.Screen name="Events" component={EventsStack} />
         <Tab.Screen name="Contacts" component={ContactsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
